@@ -1,7 +1,7 @@
 # Ignore everything
-/**
+/*
 
 !/.gitignore
 
 # Except these
-!/nvim/
+!/nvim
