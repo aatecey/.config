@@ -1,7 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
   	-- Packer can manage itself
@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
