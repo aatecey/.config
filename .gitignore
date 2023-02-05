@@ -2,6 +2,7 @@
 /*
 
 !/.gitignore
+!/.Xmodmap
 
 # Except these
 !/nvim
