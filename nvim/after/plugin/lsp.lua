@@ -4,30 +4,29 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'sumneko_lua',
   'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
 lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
+  }
 })
 
 require("lspconfig").tsserver.setup({
-    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-    end,
+  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end,
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -45,7 +44,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -62,6 +61,5 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true,
+  virtual_text = true,
 })
-
