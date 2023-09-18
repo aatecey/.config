@@ -1,1 +1,2 @@
-require("tecey")
+require("at.core")
+require("at.lazy")
