@@ -22,6 +22,14 @@ return {
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ hidden = true, search = vim.fn.input("Grep > ") })
 		end)
+		vim.keymap.set("n", "<leader>pw", function()
+			local word = vim.fn.expand("<cword>")
+			builtin.grep_string({ search = word })
+		end)
+		vim.keymap.set("n", "<leader>pW", function()
+			local word = vim.fn.expand("<cWORD>")
+			builtin.grep_string({ search = word })
+		end)
 
 		telescope.setup({
 			defaults = {
