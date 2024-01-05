@@ -67,7 +67,7 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["vtsls"].setup({
+		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -77,9 +77,50 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
+		lspconfig.tailwindcss.setup({
+			filetypes = {
+				"astro",
+				"astro-markdown",
+				"gohtml",
+				"gohtmltmpl",
+				"handlebars",
+				"hbs",
+				"html",
+				"html-eex",
+				"markdown",
+				"mdx",
+				"css",
+				"javascript",
+				"javascriptreact",
+				"rescript",
+				"typescript",
+				"typescriptreact",
+
+				-- Custom
+				"templ",
+			},
+			init_options = {
+				userLanguages = {
+					templ = "html",
+				},
+			},
 			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				tailwindCSS = {
+					classAttributes = {
+						"class",
+						"className",
+						"textClassName",
+					},
+					experimental = {
+						classRegex = {
+							{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+							{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+						},
+					},
+				},
+			},
 		})
 
 		lspconfig["eslint"].setup({
@@ -88,6 +129,35 @@ return {
 		})
 
 		lspconfig["ltex"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["clangd"].setup({
+			on_attach = on_attach,
+			capabilities = cmp_nvim_lsp.default_capabilities(),
+			cmd = {
+				"clangd",
+				"--offset-encoding=utf-16",
+			},
+		})
+
+		lspconfig["astro"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["mdx_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
