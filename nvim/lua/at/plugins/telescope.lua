@@ -16,7 +16,7 @@ return {
 		vim.keymap.set("n", "<leader>pl", function()
 			builtin.live_grep({ hidden = true })
 		end)
-		vim.keymap.set("n", "<C-p>", function()
+		vim.keymap.set("n", "<leader>pp", function()
 			builtin.git_files({ hidden = true })
 		end)
 		vim.keymap.set("n", "<leader>ps", function()

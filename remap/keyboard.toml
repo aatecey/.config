@@ -1,0 +1,11 @@
+# Run `sudo evremap list-devices` to see the devices available
+device_name = "AT Translated Set 2 keyboard"
+
+# Configure CAPSLOCK as a Dual Role key.
+# Holding it produces LEFTCTRL, but tapping it
+# will produce ESC.
+# Both `tap` and `hold` can expand to multiple output keys.
+[[dual_role]]
+input = "KEY_CAPSLOCK"
+hold = ["KEY_LEFTCTRL"]
+tap = ["KEY_ESC"]

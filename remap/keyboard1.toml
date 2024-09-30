@@ -1,0 +1,11 @@
+
+# Run `sudo evremap list-devices` to see the devices available
+device_name = "SONiX Xtrfy K4"
+phys = "usb-0000:00:14.0-3.4.1/input0"
+# Holding it produces LEFTCTRL, but tapping it
+# will produce ESC.
+# Both `tap` and `hold` can expand to multiple output keys.
+[[dual_role]]
+input = "KEY_CAPSLOCK"
+hold = ["KEY_LEFTCTRL"]
+tap = ["KEY_ESC"]
